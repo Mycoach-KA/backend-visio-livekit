@@ -67,3 +67,6 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Serveur lancé sur http://localhost:${PORT}`);
 });
+app.get("/openapi.json", (req, res) => {
+  res.sendFile(__dirname + "/openapi.json");
+});

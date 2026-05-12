@@ -1,0 +1,71 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "LiveKit Visio API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://backend-visio-livekit.onrender.com"
+    }
+  ],
+  "paths": {
+    "/create-visio-token": {
+      "post": {
+        "operationId": "createVisioToken",
+        "summary": "Créer un token LiveKit pour une séance",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["sessionId", "userId"],
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "userId": {
+                    "type": "string"
+                  },
+                  "userName": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Token créé",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "livekitUrl": {
+                      "type": "string"
+                    },
+                    "roomName": {
+                      "type": "string"
+                    },
+                    "token": {
+                      "type": "string"
+                    },
+                    "role": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
